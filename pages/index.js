@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import MusicContent from "../components/MusicContent";
 import Sidebar from "../components/Sidebar";
-import Player from "../components/PLayer";
+import PlayerMusic from "../components/PlayerMusic";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       </main>
 
       <div className="sticky bottom-0">
-        <Player />
+        <PlayerMusic />
       </div>
     </div>
   );

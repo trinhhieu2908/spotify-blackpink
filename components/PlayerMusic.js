@@ -20,7 +20,7 @@ import {
 
 import { debounce } from "lodash";
 
-function Player() {
+function PlayerMusic() {
   const spotifyApi = useSpotify();
   const { data: session, status } = useSession();
 
@@ -132,4 +132,4 @@ function Player() {
   );
 }
 
-export default Player;
+export default PlayerMusic;
