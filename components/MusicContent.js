@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Image from "next/image";
 
 import { signOut, useSession } from "next-auth/react";
 import { ChevronDownIcon } from "@heroicons/react/outline";
@@ -27,13 +26,6 @@ function MusicContent() {
   }, [spotifyApi, pickedPlaylistId]);
 
   // console.log(playlist);
-
-  const ImagePlaylistLoader = ({ src }) => {
-    return `${playlist?.images?.[0]?.url}`;
-  };
-  const ImageProfileLoader = ({ src }) => {
-    return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyx3vOqyU0fzzNggJpFvs-8E5B010c0noBNA&usqp=CAU"
-  }
   return (
     <div className="flex-grow bg-black h-screen overflow-y-scroll scrollbar-hide">
       <header className="absolute top-5 right-8">
@@ -43,13 +35,10 @@ function MusicContent() {
             signOut();
           }}
         >
-          <Image
-          loader={ImageProfileLoader}
-            className="rounded-full"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyx3vOqyU0fzzNggJpFvs-8E5B010c0noBNA&usqp=CAU"
+          <img
+            className="rounded-full w-10 h-10"
+            src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/271deea8-e28c-41a3-aaf5-2913f5f48be6/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzI3MWRlZWE4LWUyOGMtNDFhMy1hYWY1LTI5MTNmNWY0OGJlNlwvZGU3ODM0cy02NTE1YmQ0MC04YjJjLTRkYzYtYTg0My01YWMxYTk1YThiNTUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.BopkDn1ptIwbmcKHdAOlYHyAOOACXW0Zfgbs0-6BY-E"
             alt="profile"
-            width={40}
-            height={40}
           />
           <h2>{session?.user.name}</h2>
           <ChevronDownIcon className="h-5 w-5" />
@@ -57,13 +46,10 @@ function MusicContent() {
       </header>
 
       <section className="flex items-end space-x-7 bg-gradient-to-b from-fuchsia-300 to-black h-80 text-white p-8">
-        <Image
-          loader={ImagePlaylistLoader}
-          className="shadow-2xl rounded"
-          src={`${playlist?.images?.[0]?.url}`}
+        <img
+          className="h-44 w-44 shadow-2xl rounded"
+          src={playlist?.images?.[0]?.url}
           alt="playlist"
-          width={208}
-          height={208}
         />
         <div>
           <p className="text-sm">PLAYLIST</p>
@@ -72,7 +58,7 @@ function MusicContent() {
           </h1>
         </div>
       </section>
-      <hr className="py-4 mt-4 opacity-30" />
+          <hr className="py-4 mt-4 opacity-40"/>
       <div>
         <Songs />
       </div>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback } from "react";
-import Image from "next/image";
 import useSpotify from "../hooks/useSpotify";
 import { useSession } from "next-auth/react";
 import { useRecoilState } from "recoil";
@@ -84,13 +83,10 @@ function Player() {
   return (
     <div className="h-24 bg-gradient-to-b from-fuchsia-300 to-black text-white grid grid-cols-3 text-xs md:text-base px-2 md:px-8">
       <div className="flex items-center space-x-4">
-        <Image
-          loader={ImageSongLoader}
-          className="hidden md:inline rounded"
-          src={`${songInfo?.album.images?.[0].url}`}
+        <img
+          className="hidden md:inline rounded h-10 w-10"
+          src={songInfo?.album.images?.[0].url}
           alt="song"
-          height={40}
-          width={40}
         />
         <div>
           <h3 className="text-fuchsia-300 text-2xl">{songInfo?.name}</h3>
